@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Apurva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #b30033, #ff3366);
+      color: white;
+      overflow-y: scroll;
+    }
+
+    header {
+      padding: 60px 20px 30px;
+      background-color: rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5em;
+      margin: 0;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .message {
+      max-width: 800px;
+      margin: 30px auto;
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 25px;
+      border-radius: 15px;
+      font-size: 1.2em;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.8em;
+      text-align: center;
+    }
+
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .cake {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 2.5em;
+      animation: float 3s ease-in-out infinite;
+      z-index: 10;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul li {
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+      .message {
+        padding: 15px;
+        font-size: 1em;
+      }
+      .cake {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="hearts"></canvas>
+
+  <header>
+    <h1>Happy Birthday, Apurva! 🎉</h1>
+  </header>
+
+  <!-- Main Message -->
+  <section class="message">
+    <p>Dear Apurva,<br><br>
+    On your special day, I just wanted to send you love and light from afar.  
+    No matter the distance or time, your presence still holds a beautiful place in my heart.  
+    May your journey ahead be full of growth, laughter, kindness, and deep peace.  
+    You deserve the best of everything life has to offer.<br><br>
+    —Himanshu</p>
+  </section>
+
+  <!-- Memories Section -->
+  <section>
+    <h2>Moments to Remember</h2>
+    <div class="message">
+      <p>📌 That silly joke you made which made me soo happy and  laugh. Always missing you and your love for me.</p>
+      <p>📌 The time we both forgot what we were arguing about and just started another topic.That little efforts from you and me was really unforgetable.</p>
+      <p>📌 Your little victories — always makes me proud.Don't forget your power ,you can do anything which you can.</p>
+<p> 📌 A lot of things i have,which i never forget ,a lot to say,less to express. My love for you always remain same. It doesn't fade with time. Else day by day it deepen in my heart and makes a deep feeling for you. But i control anyhow,i have no other chance.</p>
+    </div>
+  </section>
+
+  <!-- Her Qualities -->
+  <section>
+    <h2>You Are...</h2>
+    <div class="message">
+      <ul>
+        <li>💖 Kind and Compassionate</li>
+        <li>🌼 Strong and Resilient</li>
+        <li>✨ A Very Beautiful Soul Inside Out</li>
+        <li>🎓 Smart and Ambitious</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Final Silent Wish -->
+  <section>
+    <h2>A Silent Wish</h2>
+    <div class="message">
+      <p>
+        I may not be there to say it in person, but my heart remembers this day.  
+        I hope the world treats you gently. I hope you stay soft, brave, and real. May your journey ahead be filled with love, peace, and endless smiles. Keep glowing, keep dreaming, and never forget how amazing you are.
+
+Wishing you a truly joyful birthday. 
+        Happy Birthday, Apurva — you're one of a kind and beautiful soul.
+                  Lot's of LOVE to your way.
+      </p>
+    </div>
+  </section>
+
+  <!-- Cake Icon -->
+  <div class="cake">🎂</div>
+
+  <!-- Heart Animation Script -->
+  <script>
+    const canvas = document.getElementById('hearts');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const hearts = [];
+
+    class Heart {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height + Math.random() * canvas.height;
+        this.size = Math.random() * 5 + 2;
+        this.speedY = Math.random() * 1 + 0.5;
+        this.opacity = Math.random();
+      }
+
+      draw() {
+        ctx.fillStyle = `rgba(255, 105, 180, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.bezierCurveTo(this.x + this.size, this.y - this.size, this.x + this.size * 2, this.y + this.size, this.x, this.y + this.size * 2);
+        ctx.bezierCurveTo(this.x - this.size * 2, this.y + this.size, this.x - this.size, this.y - this.size, this.x, this.y);
+        ctx.fill();
+      }
+
+      update() {
+        this.y -= this.speedY;
+        if (this.y < -10) {
+          this.y = canvas.height + 10;
+        }
+      }
+    }
+
+    for (let i = 0; i < 100; i++) {
+      hearts.push(new Heart());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      hearts.forEach(h => {
+        h.update();
+        h.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+<!-- I'm Sorry Section -->
+<section>
+  <h2>I'm Sorry</h2>
+  <div class="message">
+    <p>
+      If words could rewind time, I would go back and fix every moment that hurt you.<br><br>
+      I know I wasn’t always what you needed me to be. Sometimes I misunderstood your silence, took your strength for granted, or spoke when I should’ve listened. I see it all now, clearly — and it stays with me.<br><br>
+      I’m sorry for every tear I caused, every time my presence felt like absence, and every time you had to carry the weight alone.<br><br>
+      You gave so much — kindness, patience, understanding — and I didn't always honour it the way I should have. That truth humbles me every day.<br><br>
+      You deserved softness, not struggle. Peace, not confusion. Love, not doubt.<br><br>
+      From the deepest part of me… I am truly sorry.
+    </p>
+  </div>
+</section>
+
+</body>
+</html>
